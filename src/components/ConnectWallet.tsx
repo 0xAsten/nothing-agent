@@ -32,10 +32,6 @@ export function ConnectWallet() {
           <Button onClick={() => connect({ connector: controller })}>
             Connect
           </Button>
-          {/* <Button onClick={() => connect({ connector: session })}>
-            Create Session
-          </Button> */}
-          {/* <Button onClick={openRegisterSessionUrl}>Register Session</Button> */}
         </div>
       )}
     </div>
