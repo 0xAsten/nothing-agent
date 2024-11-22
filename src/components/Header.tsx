@@ -31,7 +31,7 @@ export function Header() {
             >
               <Wallet2 size={18} />
               <span className="font-medium">
-                {address ? `${address.slice(0, 4)}...${address.slice(-4)}` : ''}
+                {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''}
               </span>
               <ChevronDown
                 size={18}

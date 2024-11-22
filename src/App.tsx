@@ -52,7 +52,7 @@ function App() {
       <StarknetProvider>
         <div className="min-h-screen bg-[#0f0f0f] text-white">
           <Header />
-          <div className="pt-16 pb-20 px-4">
+          <div className="pt-20 pb-20 px-4">
             <div className="max-w-2xl mx-auto">
               {messages.map((message) => (
                 <Message
