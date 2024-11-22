@@ -4,96 +4,100 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@cartridge/connector':
-    specifier: ^0.5.0
-    version: 0.5.0(get-starknet-core@4.0.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)
-  '@cartridge/controller':
-    specifier: ^0.5.0
-    version: 0.5.0(react-dom@18.3.1)(typescript@5.6.3)
-  '@cartridge/ui-next':
-    specifier: 0.5.0
-    version: 0.5.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(tailwindcss@3.4.15)(typescript@5.6.3)
-  '@starknet-react/chains':
-    specifier: ^3.1.0
-    version: 3.1.0
-  '@starknet-react/core':
-    specifier: ^3.6.0
-    version: 3.6.0(get-starknet-core@4.0.0)(react@18.3.1)(starknet@6.11.0)(typescript@5.6.3)
-  '@twa-dev/sdk':
-    specifier: ^7.10.1
-    version: 7.10.1(react@18.3.1)
-  lucide-react:
-    specifier: ^0.460.0
-    version: 0.460.0(react@18.3.1)
-  react:
-    specifier: ^18.3.1
-    version: 18.3.1
-  react-dom:
-    specifier: ^18.3.1
-    version: 18.3.1(react@18.3.1)
-  starknet:
-    specifier: ^6.11.0
-    version: 6.11.0
+importers:
 
-devDependencies:
-  '@eslint/js':
-    specifier: ^9.13.0
-    version: 9.15.0
-  '@types/node':
-    specifier: ^22.9.1
-    version: 22.9.1
-  '@types/react':
-    specifier: ^18.3.12
-    version: 18.3.12
-  '@types/react-dom':
-    specifier: ^18.3.1
-    version: 18.3.1
-  '@typescript-eslint/eslint-plugin':
-    specifier: ^8.15.0
-    version: 8.15.0(@typescript-eslint/parser@8.15.0)(eslint@9.15.0)(typescript@5.6.3)
-  '@typescript-eslint/parser':
-    specifier: ^8.15.0
-    version: 8.15.0(eslint@9.15.0)(typescript@5.6.3)
-  '@vitejs/plugin-react':
-    specifier: ^4.3.3
-    version: 4.3.3(vite@5.4.11)
-  autoprefixer:
-    specifier: ^10.4.20
-    version: 10.4.20(postcss@8.4.49)
-  eslint:
-    specifier: ^9.15.0
-    version: 9.15.0
-  eslint-plugin-react:
-    specifier: ^7.37.2
-    version: 7.37.2(eslint@9.15.0)
-  eslint-plugin-react-hooks:
-    specifier: ^5.0.0
-    version: 5.0.0(eslint@9.15.0)
-  eslint-plugin-react-refresh:
-    specifier: ^0.4.14
-    version: 0.4.14(eslint@9.15.0)
-  globals:
-    specifier: ^15.11.0
-    version: 15.12.0
-  postcss:
-    specifier: ^8.4.49
-    version: 8.4.49
-  tailwindcss:
-    specifier: ^3.4.15
-    version: 3.4.15
-  typescript:
-    specifier: ~5.6.2
-    version: 5.6.3
-  typescript-eslint:
-    specifier: ^8.11.0
-    version: 8.15.0(eslint@9.15.0)(typescript@5.6.3)
-  vite:
-    specifier: ^5.4.10
-    version: 5.4.11(@types/node@22.9.1)
-  vite-plugin-mkcert:
-    specifier: ^1.17.6
-    version: 1.17.6(vite@5.4.11)
+  .: {}
+
+  apps/frontend:
+    dependencies:
+      '@cartridge/connector':
+        specifier: ^0.5.0
+        version: 0.5.0(get-starknet-core@4.0.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)
+      '@cartridge/controller':
+        specifier: ^0.5.0
+        version: 0.5.0(react-dom@18.3.1)(typescript@5.6.3)
+      '@cartridge/ui-next':
+        specifier: 0.5.0
+        version: 0.5.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(tailwindcss@3.4.15)(typescript@5.6.3)
+      '@starknet-react/chains':
+        specifier: ^3.1.0
+        version: 3.1.0
+      '@starknet-react/core':
+        specifier: ^3.6.0
+        version: 3.6.0(get-starknet-core@4.0.0)(react@18.3.1)(starknet@6.11.0)(typescript@5.6.3)
+      '@twa-dev/sdk':
+        specifier: ^7.10.1
+        version: 7.10.1(react@18.3.1)
+      lucide-react:
+        specifier: ^0.460.0
+        version: 0.460.0(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      starknet:
+        specifier: ^6.11.0
+        version: 6.11.0
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.13.0
+        version: 9.15.0
+      '@types/node':
+        specifier: ^22.9.1
+        version: 22.9.1
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^8.15.0
+        version: 8.15.0(@typescript-eslint/parser@8.15.0)(eslint@9.15.0)(typescript@5.6.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.15.0
+        version: 8.15.0(eslint@9.15.0)(typescript@5.6.3)
+      '@vitejs/plugin-react':
+        specifier: ^4.3.3
+        version: 4.3.3(vite@5.4.11)
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.49)
+      eslint:
+        specifier: ^9.15.0
+        version: 9.15.0
+      eslint-plugin-react:
+        specifier: ^7.37.2
+        version: 7.37.2(eslint@9.15.0)
+      eslint-plugin-react-hooks:
+        specifier: ^5.0.0
+        version: 5.0.0(eslint@9.15.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.14
+        version: 0.4.14(eslint@9.15.0)
+      globals:
+        specifier: ^15.11.0
+        version: 15.12.0
+      postcss:
+        specifier: ^8.4.49
+        version: 8.4.49
+      tailwindcss:
+        specifier: ^3.4.15
+        version: 3.4.15
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      typescript-eslint:
+        specifier: ^8.11.0
+        version: 8.15.0(eslint@9.15.0)(typescript@5.6.3)
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.11(@types/node@22.9.1)
+      vite-plugin-mkcert:
+        specifier: ^1.17.6
+        version: 1.17.6(vite@5.4.11)
 
 packages:
 
@@ -2175,7 +2179,7 @@ packages:
     resolution: {integrity: sha512-N1ZhksgwD3OBlwTv3R6KFEcPojl/W4ElJOeCZdi+vuI5QmTFwLq3OFf2zd2ROpKvxFdgZ6hUpb0dx9bVNEwYCA==}
     dependencies:
       '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.3
+      '@noble/hashes': 1.3.2
       '@scure/base': 1.1.9
     dev: false
 
@@ -2190,7 +2194,7 @@ packages:
   /@scure/bip39@1.2.1:
     resolution: {integrity: sha512-Z3/Fsz1yr904dduJD0NpiyRHhRYHdcnyh73FZWiV+/qhWi83wNJ3NWolYqCEN+ZWsUz2TWwajJggcRE9r1zUYg==}
     dependencies:
-      '@noble/hashes': 1.3.3
+      '@noble/hashes': 1.3.2
       '@scure/base': 1.1.9
     dev: false
 
@@ -2225,12 +2229,12 @@ packages:
     dependencies:
       '@starknet-io/types-js': 0.7.7
       '@starknet-react/chains': 3.1.0
-      '@tanstack/react-query': 5.60.6(react@18.3.1)
+      '@tanstack/react-query': 5.61.0(react@18.3.1)
       eventemitter3: 5.0.1
       get-starknet-core: 4.0.0
       react: 18.3.1
       starknet: 6.11.0
-      viem: 2.21.48(typescript@5.6.3)(zod@3.23.8)
+      viem: 2.21.49(typescript@5.6.3)(zod@3.23.8)
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
@@ -2242,8 +2246,8 @@ packages:
     resolution: {integrity: sha512-tI+k0KyCo1EBJ54vxK1kY24LWj673ujTydCZmzEZKAew4NqZzTaVQJEuaG1qKj2M03kUHN46rchLRd+TxVq/zQ==}
     dev: false
 
-  /@tanstack/react-query@5.60.6(react@18.3.1):
-    resolution: {integrity: sha512-FUzSDaiPkuZCmuGqrixfRRXJV9u+nrUh9lAlA5Q3ZFrOw1Js1VeBfxi1NIcJO3ZWJdKceBqKeBJdNcWStCYZnw==}
+  /@tanstack/react-query@5.61.0(react@18.3.1):
+    resolution: {integrity: sha512-SBzV27XAeCRBOQ8QcC94w2H1Md0+LI0gTWwc3qRJoaGuewKn5FNW4LSqwPFJZVEItfhMfGT7RpZuSFXjTi12pQ==}
     peerDependencies:
       react: ^18 || ^19
     dependencies:
@@ -2711,7 +2715,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.24.2
-      caniuse-lite: 1.0.30001680
+      caniuse-lite: 1.0.30001683
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -2792,8 +2796,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001680
-      electron-to-chromium: 1.5.63
+      caniuse-lite: 1.0.30001683
+      electron-to-chromium: 1.5.64
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
     dev: true
@@ -2818,8 +2822,8 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  /caniuse-lite@1.0.30001680:
-    resolution: {integrity: sha512-rPQy70G6AGUMnbwS1z6Xg+RkHYPAi18ihs47GH0jcxIG7wArmPgY3XbS2sRdBbxJljp3thdT8BIqv9ccCypiPA==}
+  /caniuse-lite@1.0.30001683:
+    resolution: {integrity: sha512-iqmNnThZ0n70mNwvxpEC2nBJ037ZHZUoBI5Gorh1Mw6IlEAZujEoU1tXA628iZfzm7R9FvFzxbfdgml82a3k8Q==}
     dev: true
 
   /cardinal@2.1.1:
@@ -3069,8 +3073,8 @@ packages:
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  /electron-to-chromium@1.5.63:
-    resolution: {integrity: sha512-ddeXKuY9BHo/mw145axlyWjlJ1UBt4WK3AlvkT7W2AbqfRQoacVoRUCF6wL3uIx/8wT9oLKXzI+rFqHHscByaA==}
+  /electron-to-chromium@1.5.64:
+    resolution: {integrity: sha512-IXEuxU+5ClW2IGEYFC2T7szbyVgehupCWQe5GNh+H065CD6U6IFN0s4KeAMFGNmQolRU4IV7zGBWSYMmZ8uuqQ==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -3125,7 +3129,7 @@ packages:
       string.prototype.trimstart: 1.0.8
       typed-array-buffer: 1.0.2
       typed-array-byte-length: 1.0.1
-      typed-array-byte-offset: 1.0.2
+      typed-array-byte-offset: 1.0.3
       typed-array-length: 1.0.6
       unbox-primitive: 1.0.2
       which-typed-array: 1.1.15
@@ -4447,8 +4451,8 @@ packages:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: true
 
-  /psl@1.10.0:
-    resolution: {integrity: sha512-KSKHEbjAnpUuAUserOq0FxGXCUrzC3WniuSJhvdbs102rL55266ZcHBqLWOsG30spQMlPdpy7icATiAQehg/iA==}
+  /psl@1.13.0:
+    resolution: {integrity: sha512-BFwmFXiJoFqlUpZ5Qssolv15DMyc84gTBds1BjsV1BfXEo1UyyD7GsmN67n7J77uRhoSNW1AXtXKPLcBFQn9Aw==}
     dependencies:
       punycode: 2.3.1
     dev: false
@@ -5016,7 +5020,7 @@ packages:
     resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
     engines: {node: '>=6'}
     dependencies:
-      psl: 1.10.0
+      psl: 1.13.0
       punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
@@ -5073,8 +5077,8 @@ packages:
       is-typed-array: 1.1.13
     dev: true
 
-  /typed-array-byte-offset@1.0.2:
-    resolution: {integrity: sha512-Ous0vodHa56FviZucS2E63zkgtgrACj7omjwd/8lTEMEPFFyjfixMZ1ZXenpgCFBBt4EC1J2XsyVS2gkG0eTFA==}
+  /typed-array-byte-offset@1.0.3:
+    resolution: {integrity: sha512-GsvTyUHTriq6o/bHcTd0vM7OQ9JEdlvluu9YISaA7+KzDzPaIzEeDFNkTfhdE3MYcNhNi0vq/LlegYgIs5yPAw==}
     engines: {node: '>= 0.4'}
     dependencies:
       available-typed-arrays: 1.0.7
@@ -5083,6 +5087,7 @@ packages:
       gopd: 1.0.1
       has-proto: 1.0.3
       is-typed-array: 1.1.13
+      reflect.getprototypeof: 1.0.6
     dev: true
 
   /typed-array-length@1.0.6:
@@ -5262,8 +5267,8 @@ packages:
       - zod
     dev: false
 
-  /viem@2.21.48(typescript@5.6.3)(zod@3.23.8):
-    resolution: {integrity: sha512-/hBHyG1gdIIuiQv0z9YmzXl5eWJa0UCZGwkeuQzH2Bmg6FIEwZeEcxgiytXZydip+p2wMBFa1jdr7o5O1+mrIg==}
+  /viem@2.21.49(typescript@5.6.3)(zod@3.23.8):
+    resolution: {integrity: sha512-NNItYfTv4+yGE5DDKc+S/g2S7KeJn047GwgEYG60FAJlK0FzwuP6lQKSeQ8k7Y4VasfuKPqiT+XiilcCtTRiDQ==}
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
