@@ -27,3 +27,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #3c3c3c;
 }
+
+/* Close dropdown when clicking outside */
+.dropdown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}

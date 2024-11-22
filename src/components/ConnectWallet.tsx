@@ -1,39 +1,17 @@
-import { useAccount, useConnect, useDisconnect } from '@starknet-react/core'
-import { useEffect, useState } from 'react'
+import { useConnect } from '@starknet-react/core'
 import ControllerConnector from '@cartridge/connector/controller'
 import { Button } from '@cartridge/ui-next'
 
-export function ConnectWallet() {
+export function ConnectWallet({ children }: { children: React.ReactNode }) {
   const { connect, connectors } = useConnect()
-  const { disconnect } = useDisconnect()
-  const { address } = useAccount()
 
   const controller = connectors[0] as ControllerConnector
 
-  const [username, setUsername] = useState<string>()
-  useEffect(() => {
-    if (!address) return
-    controller.username()?.then((n) => setUsername(n))
-  }, [address, controller])
+  const handleConnect = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('connecting')
+    e.preventDefault()
+    connect({ connector: controller })
+  }
 
-  return (
-    <div>
-      {address && (
-        <>
-          <p>Account: {address} </p>
-          {username && <p>Username: {username}</p>}
-        </>
-      )}
-
-      {address ? (
-        <Button onClick={() => disconnect()}>Disconnect</Button>
-      ) : (
-        <div className="flex gap-1">
-          <Button onClick={() => connect({ connector: controller })}>
-            Connect
-          </Button>
-        </div>
-      )}
-    </div>
-  )
+  return <Button onClick={handleConnect}>{children}</Button>
 }
