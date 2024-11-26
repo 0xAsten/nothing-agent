@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { Header } from '@/app/components/Header'
 import { Message } from '@/app/components/Message'
 import { ChatInput } from '@/app/components/ChatInput'
-import WebApp from '@twa-dev/sdk'
 
 interface ChatMessage {
   id: number
@@ -13,18 +12,17 @@ interface ChatMessage {
   isOutgoing: boolean
 }
 
-function App() {
+export default function Home() {
+  const now = new Date()
+
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 1,
-      content: '👋 Welcome to our Telegram Mini App!',
-      timestamp: '12:00',
-      isOutgoing: false,
-    },
-    {
-      id: 2,
-      content: 'Connect your wallet to get started with crypto transactions.',
-      timestamp: '12:01',
+      content: '👋 Welcome to our Nothing Agent!',
+      timestamp: now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
       isOutgoing: false,
     },
   ])
@@ -42,11 +40,6 @@ function App() {
     setMessages([...messages, newMessage])
   }
 
-  useEffect(() => {
-    WebApp.ready()
-    WebApp.expand()
-  }, [])
-
   return (
     <>
       <div className="min-h-screen bg-[#0f0f0f] text-white">
@@ -63,10 +56,8 @@ function App() {
             ))}
           </div>
         </div>
-        {/* <ChatInput onSend={handleSendMessage} /> */}
+        <ChatInput onSend={handleSendMessage} />
       </div>
     </>
   )
 }
-
-export default App
