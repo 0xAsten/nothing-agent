@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Send } from 'lucide-react'
+import { ConnectWallet } from './ConnectWallet'
+import { useAccount } from '@starknet-react/core'
 
 interface ChatInputProps {
   onSend: (message: string) => void
@@ -7,6 +9,7 @@ interface ChatInputProps {
 
 export function ChatInput({ onSend }: ChatInputProps) {
   const [message, setMessage] = useState('')
+  const { address, isConnected } = useAccount()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -29,12 +32,16 @@ export function ChatInput({ onSend }: ChatInputProps) {
           placeholder="Type a message..."
           className="flex-1 bg-[#2c2c2c] text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ea6ff]"
         />
-        <button
-          type="submit"
-          className="bg-[#2ea6ff] hover:bg-[#2495e7] text-white p-2 rounded-lg transition-colors"
-        >
-          <Send size={20} />
-        </button>
+        {!isConnected ? (
+          <ConnectWallet>Connect Wallet</ConnectWallet>
+        ) : (
+          <button
+            type="submit"
+            className="bg-[#2ea6ff] hover:bg-[#2495e7] text-white p-2 rounded-lg transition-colors"
+          >
+            <Send size={20} />
+          </button>
+        )}
       </div>
     </form>
   )

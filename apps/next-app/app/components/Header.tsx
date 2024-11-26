@@ -10,6 +10,10 @@ export function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const { address, isConnected } = useAccount()
 
+  if (address) {
+    console.log(address)
+  }
+
   useEffect(() => {
     if (!isConnected) {
       setIsDropdownOpen(false)
