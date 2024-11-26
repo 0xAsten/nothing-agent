@@ -2,7 +2,7 @@
   "name": "mb-nothing",
   "private": true,
   "scripts": {
-    "dev": "pnpm -r dev",
-    "build": "pnpm -r build"
+    "dev": "pnpm --filter next-app dev",
+    "build": "pnpm --filter next-app build"
   }
 }
