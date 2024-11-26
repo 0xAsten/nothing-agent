@@ -5,9 +5,10 @@ import { useAccount } from '@starknet-react/core'
 
 interface ChatInputProps {
   onSend: (message: string) => void
+  isLoading: boolean
 }
 
-export function ChatInput({ onSend }: ChatInputProps) {
+export function ChatInput({ onSend, isLoading }: ChatInputProps) {
   const [message, setMessage] = useState('')
   const { address, isConnected } = useAccount()
 
@@ -31,6 +32,7 @@ export function ChatInput({ onSend }: ChatInputProps) {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type a message..."
           className="flex-1 bg-[#2c2c2c] text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ea6ff]"
+          disabled={isLoading}
         />
         {!isConnected ? (
           <ConnectWallet>Connect Wallet</ConnectWallet>
@@ -38,8 +40,13 @@ export function ChatInput({ onSend }: ChatInputProps) {
           <button
             type="submit"
             className="bg-[#2ea6ff] hover:bg-[#2495e7] text-white p-2 rounded-lg transition-colors"
+            disabled={isLoading}
           >
-            <Send size={20} />
+            {isLoading ? (
+              <div className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full" />
+            ) : (
+              <Send size={20} />
+            )}
           </button>
         )}
       </div>

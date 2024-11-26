@@ -16,6 +16,7 @@ interface ChatMessage {
 
 export default function Home() {
   const { address, isConnected } = useAccount()
+  const [isLoading, setIsLoading] = useState(false)
 
   const now = new Date()
 
@@ -54,6 +55,8 @@ export default function Home() {
     console.log('api messages: ' + JSON.stringify(apiMessages))
 
     try {
+      setIsLoading(true)
+
       const response = await fetch('/api', {
         method: 'POST',
         headers: {
@@ -99,6 +102,8 @@ export default function Home() {
       }
     } catch (error) {
       console.error('Failed to fetch response:', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -114,11 +119,12 @@ export default function Home() {
                 content={message.content}
                 timestamp={message.timestamp}
                 isOutgoing={message.isOutgoing}
+                isLoading={isLoading}
               />
             ))}
           </div>
         </div>
-        <ChatInput onSend={handleSendMessage} />
+        <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
       </div>
     </>
   )
