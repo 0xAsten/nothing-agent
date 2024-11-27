@@ -1,3 +1,8 @@
+import { useContract, useAccount } from '@starknet-react/core'
+import { ArrowBigRight } from 'lucide-react'
+import { useState } from 'react'
+import { Contract } from 'starknet'
+
 interface MessageProps {
   content: string
   timestamp: string
@@ -5,6 +10,13 @@ interface MessageProps {
   isLoading?: boolean
   sender?: 'user' | 'brian'
   executable?: boolean
+  transactionData?: {
+    steps: {
+      contractAddress: string
+      entrypoint: string
+      calldata: string[]
+    }[]
+  }
 }
 
 export function Message({
@@ -14,7 +26,27 @@ export function Message({
   isLoading = false,
   sender = 'brian',
   executable = false,
+  transactionData,
 }: MessageProps) {
+  const { account } = useAccount()
+  const [txnHash, setTxnHash] = useState<string | undefined>(undefined)
+  const [submitted, setSubmitted] = useState<boolean>(false)
+
+  const handleExecute = () => {
+    console.log(account)
+    console.log(transactionData)
+    if (!account || !transactionData) return
+
+    setSubmitted(true)
+    setTxnHash(undefined)
+
+    account
+      .execute(transactionData.steps)
+      .then(({ transaction_hash }) => setTxnHash(transaction_hash))
+      .catch((e) => console.log(e))
+      .finally(() => setSubmitted(false))
+  }
+
   return (
     <div
       className={`flex ${isOutgoing ? 'justify-end' : 'justify-start'} mb-4`}
@@ -45,11 +77,28 @@ export function Message({
             {timestamp}
           </p>
 
-          {sender === 'brian' && executable && (
-            <button className="bottom-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">
-              Confirm
-            </button>
-          )}
+          <div>
+            {sender === 'brian' && executable && (
+              <button
+                className="bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600"
+                onClick={handleExecute}
+                disabled={submitted}
+              >
+                {submitted ? 'Submitted' : 'Confirm'}
+              </button>
+            )}
+
+            {txnHash && (
+              <a
+                href={`https://starkscan.co/tx/${txnHash}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center ml-2 text-blue-500 hover:text-blue-600"
+              >
+                <ArrowBigRight size={16} />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

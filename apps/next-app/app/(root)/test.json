@@ -1,0 +1,91 @@
+{
+  "result": [
+    {
+      "solver": "Avnu.fi",
+      "action": "swap",
+      "type": "write",
+      "data": {
+        "description": "You are about to swap 1.0 USDC ($1.00) for 1.7 STRK ($1.00) on Starknet using Avnu.fi solver. The address receiver is 0x016a582cc0a6e86dbf4fc1c8e25171e454255c1e08e97c19db3e669968b83595.",
+        "steps": [
+          {
+            "contractAddress": "0x53c91253bc9682c04929ca02ed00b3e423f6710d2ee7e0d5ebb06f3ecf368a8",
+            "entrypoint": "approve",
+            "calldata": [
+              "1878172929613570324457239593384623395652998589633516919063222269774660188943",
+              "1000000",
+              "0"
+            ]
+          },
+          {
+            "contractAddress": "0x4270219d365d6b017231b52e92b3fb5d7c8378b05e9abc97724537a80e93b0f",
+            "entrypoint": "multi_route_swap",
+            "calldata": [
+              "0x53c91253bc9682c04929ca02ed00b3e423f6710d2ee7e0d5ebb06f3ecf368a8",
+              "0xf4240",
+              "0x0",
+              "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+              "0x176092ea5de93ec7",
+              "0x0",
+              "0x16ad096355f949b1",
+              "0x0",
+              "0x16a582cc0a6e86dbf4fc1c8e25171e454255c1e08e97c19db3e669968b83595",
+              "0x1",
+              "0x129b480ad625bcd1a5c3a1c10d708114726fa467",
+              "0x1",
+              "0x53c91253bc9682c04929ca02ed00b3e423f6710d2ee7e0d5ebb06f3ecf368a8",
+              "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+              "0x5dd3d2f4429af886cd1a3b08289dbcea99a294197e9eb43b0e0325b4b",
+              "0xe8d4a51000",
+              "0x6",
+              "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+              "0x53c91253bc9682c04929ca02ed00b3e423f6710d2ee7e0d5ebb06f3ecf368a8",
+              "0x20c49ba5e353f80000000000000000",
+              "0x3e8",
+              "0x0",
+              "0x3b8961ec97ffff538021471"
+            ]
+          }
+        ],
+        "amountToApprove": "1000000",
+        "gasCostUSD": "",
+        "fromChainId": "SN_MAINNET(custom chainId 4012)",
+        "fromAmountUSD": "0.999491",
+        "fromAmount": "1000000",
+        "fromToken": {
+          "address": "0x53c91253bc9682c04929ca02ed00b3e423f6710d2ee7e0d5ebb06f3ecf368a8",
+          "symbol": "USDC",
+          "decimals": 6
+        },
+        "fromAddress": "0x016a582cc0a6e86dbf4fc1c8e25171e454255c1e08e97c19db3e669968b83595",
+        "toChainId": "SN_MAINNET(custom chainId 4012)",
+        "toAmountUSD": "0.998532",
+        "toAmount": "1684507795932135200",
+        "toToken": {
+          "address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "symbol": "STRK",
+          "decimalsTokenOut": 18
+        },
+        "toAddress": "0x4270219d365d6b017231b52e92b3fb5d7c8378b05e9abc97724537a80e93b0f",
+        "receiver": "0x016a582cc0a6e86dbf4fc1c8e25171e454255c1e08e97c19db3e669968b83595"
+      },
+      "extractedParams": {
+        "action": "swap",
+        "chain": "Starknet",
+        "token1": "USDC",
+        "token2": "STRK",
+        "address": "",
+        "amount": "1"
+      },
+      "conversationHistory": [
+        {
+          "sender": "user",
+          "content": " want to swap 1 USDC to STRK on Starknet."
+        },
+        {
+          "sender": "brian",
+          "content": "You are about to swap 1.0 USDC ($1.00) for 1.7 STRK ($1.00) on Starknet using Avnu.fi solver. The address receiver is 0x016a582cc0a6e86dbf4fc1c8e25171e454255c1e08e97c19db3e669968b83595."
+        }
+      ]
+    }
+  ]
+}

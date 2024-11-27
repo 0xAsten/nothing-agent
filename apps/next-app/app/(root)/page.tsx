@@ -13,6 +13,13 @@ interface ChatMessage {
   isOutgoing: boolean
   sender?: 'user' | 'brian'
   executable?: boolean
+  transactionData?: {
+    steps: {
+      contractAddress: string
+      entrypoint: string
+      calldata: string[]
+    }[]
+  }
 }
 
 export default function Home() {
@@ -86,6 +93,7 @@ export default function Home() {
             isOutgoing: false,
             sender: 'brian',
             executable: true,
+            transactionData: data.result[0].data,
           }
           setMessages((prev) => [...prev, brianResponse])
         }
@@ -125,6 +133,7 @@ export default function Home() {
                 isLoading={isLoading}
                 sender={message.sender}
                 executable={message.executable}
+                transactionData={message.transactionData}
               />
             ))}
           </div>
