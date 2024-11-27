@@ -12,6 +12,24 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      keyframes: {
+        flash: {
+          '0%': { backgroundColor: 'transparent' },
+          '25%': {
+            backgroundColor: 'rgba(46, 166, 255, 0.4)', // Increased opacity from 0.1 to 0.3
+            color: '#60a5fa', // Using hex for consistency
+          },
+          '50%': {
+            // Added middle keyframe
+            backgroundColor: 'rgba(46, 166, 255, 0.4)',
+            color: '#60a5fa',
+          },
+          '100%': { backgroundColor: 'transparent' },
+        },
+      },
+      animation: {
+        flash: 'flash 2s ease-in-out',
+      },
     },
   },
   plugins: [],
