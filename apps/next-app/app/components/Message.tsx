@@ -3,6 +3,8 @@ interface MessageProps {
   timestamp: string
   isOutgoing?: boolean
   isLoading?: boolean
+  sender?: 'user' | 'brian'
+  executable?: boolean
 }
 
 export function Message({
@@ -10,6 +12,8 @@ export function Message({
   timestamp,
   isOutgoing = false,
   isLoading = false,
+  sender = 'brian',
+  executable = false,
 }: MessageProps) {
   return (
     <div
@@ -32,14 +36,21 @@ export function Message({
             </span>
           )}
         </p>
+        <div className="flex justify-between">
+          <p
+            className={`text-xs mt-1 ${
+              isOutgoing ? 'text-[#e3f2fd]' : 'text-gray-400'
+            }`}
+          >
+            {timestamp}
+          </p>
 
-        <p
-          className={`text-xs mt-1 ${
-            isOutgoing ? 'text-[#e3f2fd]' : 'text-gray-400'
-          }`}
-        >
-          {timestamp}
-        </p>
+          {sender === 'brian' && executable && (
+            <button className="bottom-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">
+              Confirm
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )

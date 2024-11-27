@@ -12,6 +12,7 @@ interface ChatMessage {
   timestamp: string
   isOutgoing: boolean
   sender?: 'user' | 'brian'
+  executable?: boolean
 }
 
 export default function Home() {
@@ -48,7 +49,7 @@ export default function Home() {
 
     // Prepare messages for API
     const apiMessages = messages.slice(1).map(({ content, sender }) => ({
-      sender: sender || (content === 'user' ? 'user' : 'brian'),
+      sender: sender,
       content,
     }))
 
@@ -84,6 +85,7 @@ export default function Home() {
             }),
             isOutgoing: false,
             sender: 'brian',
+            executable: true,
           }
           setMessages((prev) => [...prev, brianResponse])
         }
@@ -97,6 +99,7 @@ export default function Home() {
           }),
           isOutgoing: false,
           sender: 'brian',
+          executable: false,
         }
         setMessages((prev) => [...prev, brianResponse])
       }
@@ -120,6 +123,8 @@ export default function Home() {
                 timestamp={message.timestamp}
                 isOutgoing={message.isOutgoing}
                 isLoading={isLoading}
+                sender={message.sender}
+                executable={message.executable}
               />
             ))}
           </div>
