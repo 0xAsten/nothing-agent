@@ -1,3 +1,5 @@
+'use client'
+
 import { useContract, useAccount } from '@starknet-react/core'
 import { ArrowBigRight } from 'lucide-react'
 import { useState } from 'react'
@@ -33,8 +35,7 @@ export function Message({
   const [submitted, setSubmitted] = useState<boolean>(false)
 
   const handleExecute = () => {
-    console.log(account)
-    console.log(transactionData)
+    console.log('transactionData:' + JSON.stringify(transactionData))
     if (!account || !transactionData) return
 
     setSubmitted(true)

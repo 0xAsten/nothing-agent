@@ -5,6 +5,7 @@ import { Wallet2, ChevronDown, LogOut } from 'lucide-react'
 import { ConnectWallet } from './ConnectWallet'
 import { DisconnectWallet } from './DisconnectWallet'
 import { useAccount } from '@starknet-react/core'
+import Image from 'next/image'
 
 export function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -22,7 +23,17 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#1c1c1c] text-white p-4 flex justify-between items-center z-50">
-      <h1 className="text-lg font-medium">Nothing</h1>
+      <div className="flex items-center">
+        <Image
+          src="/logo.png"
+          alt="App Logo"
+          width={32}
+          height={32}
+          className="mr-2"
+        />
+        <span className="text-white text-lg font-semibold">Nothing Agent</span>
+      </div>
+
       <div className="relative">
         {!isConnected ? (
           <div className="flex items-center gap-2 bg-[#2ea6ff] hover:bg-[#2495e7] text-white px-4 py-2 rounded-lg transition-colors">

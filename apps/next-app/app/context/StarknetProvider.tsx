@@ -14,6 +14,9 @@ const ETH_TOKEN_ADDRESS =
 const USDC_TOKEN_ADDRESS =
   '0x53c91253bc9682c04929ca02ed00b3e423f6710d2ee7e0d5ebb06f3ecf368a8'
 
+const STRK_TOKEN_ADDRESS =
+  '0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d'
+
 const SWAP_USDC_STRK_ADDRESS =
   '0x4270219d365d6b017231b52e92b3fb5d7c8378b05e9abc97724537a80e93b0f'
 
@@ -23,6 +26,16 @@ const connector = new ControllerConnector({
       target: USDC_TOKEN_ADDRESS,
       method: 'approve',
       description: 'Approve USDC token for the swap.',
+    },
+    {
+      target: ETH_TOKEN_ADDRESS,
+      method: 'approve',
+      description: 'Approve ETH token for the swap.',
+    },
+    {
+      target: STRK_TOKEN_ADDRESS,
+      method: 'approve',
+      description: 'Approve STRK token for the swap.',
     },
     {
       target: SWAP_USDC_STRK_ADDRESS,

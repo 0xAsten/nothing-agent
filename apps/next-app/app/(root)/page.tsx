@@ -25,21 +25,22 @@ interface ChatMessage {
 export default function Home() {
   const { address, isConnected } = useAccount()
   const [isLoading, setIsLoading] = useState(false)
+  const [messages, setMessages] = useState<ChatMessage[]>([])
 
-  const now = new Date()
-
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: 1,
-      content: '👋 Welcome to our Nothing Agent!',
-      timestamp: now.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-      isOutgoing: false,
-      sender: 'brian',
-    },
-  ])
+  useEffect(() => {
+    setMessages([
+      {
+        id: 1,
+        content: '👋 Welcome to our Nothing Agent!',
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
+        isOutgoing: false,
+        sender: 'brian',
+      },
+    ])
+  }, [])
 
   const handleSendMessage = async (content: string) => {
     const newMessage: ChatMessage = {
