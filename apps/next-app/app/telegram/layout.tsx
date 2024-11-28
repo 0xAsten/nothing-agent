@@ -1,7 +1,7 @@
 'use client'
 
-import { TelegramAccountProvider } from '../context/TelegramAccountProvider'
-import '../globals.css'
+import { TelegramAccountProvider } from '@/app/context/TelegramAccountProvider'
+import '@/app/globals.css'
 
 export default function TelegramLayout({
   children,
