@@ -14,9 +14,7 @@ export function TelegramHeader() {
           height={32}
           className="mr-2"
         />
-        <span className="text-white text-lg font-semibold">
-          Nothing Agent Telegram
-        </span>
+        <span className="text-white text-sm font-semibold">Nothing Agent</span>
       </div>
 
       <TelegramWalletButton />

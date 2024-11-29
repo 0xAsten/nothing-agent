@@ -1,7 +1,7 @@
 export const KEYCHAIN_URL = 'https://x.cartridge.gg'
 export const RPC_URL = 'https://api.cartridge.gg/x/starknet/mainnet'
 export const SEPOLIA_RPC_URL = 'https://api.cartridge.gg/x/starknet/sepolia'
-export const REDIRECT_URI = 'https://t.me/hitthingbot/hitthing'
+export const REDIRECT_URI = 'https://t.me/nothingadam_bot/nothing'
 
 export const ETH_TOKEN_ADDRESS =
   '0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7'

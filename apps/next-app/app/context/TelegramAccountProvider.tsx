@@ -1,3 +1,5 @@
+'use client'
+
 import React, {
   createContext,
   useContext,
@@ -6,6 +8,7 @@ import React, {
   useMemo,
 } from 'react'
 import {
+  init,
   useLaunchParams,
   cloudStorage,
   miniApp,
@@ -56,6 +59,14 @@ export const TelegramAccountProvider: React.FC<AccountProviderProps> = ({
   const { initData } = useLaunchParams()
   const [accountStorage, setAccountStorage] = useState<AccountStorage>()
   const [sessionSigner, setSessionSigner] = useState<SessionSigner>()
+
+  useEffect(() => {
+    const initfun = init()
+
+    return () => {
+      initfun()
+    }
+  }, [])
 
   useEffect(() => {
     const initializeSession = async () => {

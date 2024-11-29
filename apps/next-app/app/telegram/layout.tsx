@@ -8,11 +8,5 @@ export default function TelegramLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body>
-        <TelegramAccountProvider>{children}</TelegramAccountProvider>
-      </body>
-    </html>
-  )
+  return <TelegramAccountProvider>{children}</TelegramAccountProvider>
 }

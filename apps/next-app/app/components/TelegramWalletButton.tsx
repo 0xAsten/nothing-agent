@@ -1,16 +1,16 @@
 'use client'
 
 import { Wallet2 } from 'lucide-react'
-import { useAccount } from '@starknet-react/core'
 import { TelegramConnectWallet } from './TelegramConnectWallet'
-import { WalletBalances } from './WalletBalances'
+import { TelegramWalletBalances } from './TelegramWalletBalances'
+import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 
 export function TelegramWalletButton() {
-  const { address, isConnected } = useAccount()
+  const { address } = useTelegramAccount()
 
-  if (!isConnected) {
+  if (!address) {
     return (
-      <div className="flex items-center gap-2 bg-[#2ea6ff] hover:bg-[#2495e7] text-white px-4 py-2 rounded-lg transition-colors">
+      <div className="flex items-center gap-2 bg-[#2ea6ff] hover:bg-[#2495e7] text-white text-sm px-4 py-2 rounded-lg transition-colors">
         <Wallet2 size={18} />
         <TelegramConnectWallet>Connect Wallet</TelegramConnectWallet>
       </div>
@@ -19,14 +19,14 @@ export function TelegramWalletButton() {
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-2 bg-[#2ea6ff] hover:bg-[#2495e7] text-white px-4 py-2 rounded-lg transition-colors">
+      <div className="flex items-center gap-2 bg-[#2ea6ff] hover:bg-[#2495e7] text-white text-sm px-4 py-2 rounded-lg transition-colors">
         <Wallet2 size={18} />
         <span className="font-medium">
           {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''}
         </span>
       </div>
 
-      <WalletBalances />
+      <TelegramWalletBalances />
     </div>
   )
 }
