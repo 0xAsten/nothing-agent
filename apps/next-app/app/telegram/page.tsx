@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { TelegramHeader } from '@/app/components/TelegramHeader'
 import { TelegramMessage } from '@/app/components/TelegramMessage'
 import { TelegramChatInput } from '@/app/components/TelegramChatInput'
