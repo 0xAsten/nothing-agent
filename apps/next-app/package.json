@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cartridge/account-wasm": "0.5.0-alpha.1",
+    "@cartridge/account-wasm": "0.5.1",
     "@cartridge/connector": "^0.5.0",
     "@cartridge/controller": "^0.5.0",
     "@cartridge/ui-next": "0.5.0",
@@ -21,8 +21,8 @@
     "encodeurl": "^2.0.0",
     "lucide-react": "^0.460.0",
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "starknet": "^6.11.0"
   },
   "devDependencies": {

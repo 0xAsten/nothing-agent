@@ -31,6 +31,14 @@ const nextConfig: NextConfig = {
       module: false,
     }
 
+    // Configure WebAssembly to use async loading
+    config.experiments = {
+      asyncWebAssembly: true,
+      layers: true,
+    }
+
+    // config.target = ['web', 'es2017']
+
     return config
   },
 }

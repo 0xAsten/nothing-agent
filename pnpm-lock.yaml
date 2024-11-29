@@ -11,11 +11,11 @@ importers:
   apps/next-app:
     dependencies:
       '@cartridge/account-wasm':
-        specifier: 0.5.0-alpha.1
-        version: 0.5.0-alpha.1
+        specifier: 0.5.1
+        version: 0.5.1
       '@cartridge/connector':
         specifier: ^0.5.0
-        version: 0.5.1(get-starknet-core@4.0.0)(react@19.0.0-rc-66855b96-20241106)(typescript@5.7.2)
+        version: 0.5.1(get-starknet-core@4.0.0)(react@18.3.1)(typescript@5.7.2)
       '@cartridge/controller':
         specifier: ^0.5.0
         version: 0.5.1
@@ -30,31 +30,28 @@ importers:
         version: 3.1.0
       '@starknet-react/core':
         specifier: ^3.6.0
-        version: 3.6.0(get-starknet-core@4.0.0)(react@19.0.0-rc-66855b96-20241106)(starknet@6.11.0)(typescript@5.7.2)
+        version: 3.6.0(get-starknet-core@4.0.0)(react@18.3.1)(starknet@6.11.0)(typescript@5.7.2)
       '@telegram-apps/sdk-react':
         specifier: ^2.0.13
-        version: 2.0.13(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106)
+        version: 2.0.13(@types/react@18.3.12)(react@18.3.1)
       '@twa-dev/sdk':
         specifier: ^7.10.1
-        version: 7.10.1(react@19.0.0-rc-66855b96-20241106)
-      account-wasm:
-        specifier: link:@cartridge/account-wasm
-        version: link:@cartridge/account-wasm
+        version: 7.10.1(react@18.3.1)
       encodeurl:
         specifier: ^2.0.0
         version: 2.0.0
       lucide-react:
         specifier: ^0.460.0
-        version: 0.460.0(react@19.0.0-rc-66855b96-20241106)
+        version: 0.460.0(react@18.3.1)
       next:
         specifier: 15.0.3
-        version: 15.0.3(@babel/core@7.26.0)(react-dom@19.0.0-rc-66855b96-20241106)(react@19.0.0-rc-66855b96-20241106)
+        version: 15.0.3(@babel/core@7.26.0)(react-dom@18.3.1)(react@18.3.1)
       react:
-        specifier: 19.0.0-rc-66855b96-20241106
-        version: 19.0.0-rc-66855b96-20241106
+        specifier: ^18.2.0
+        version: 18.3.1
       react-dom:
-        specifier: 19.0.0-rc-66855b96-20241106
-        version: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
       starknet:
         specifier: ^6.11.0
         version: 6.11.0
@@ -385,19 +382,15 @@ packages:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  /@cartridge/account-wasm@0.5.0-alpha.1:
-    resolution: {integrity: sha512-Mb7AZh0vJbDWwaZHQ12MN3tggh63QNqTfrb90WtfoKuzdObXYSOwjcttPJwaT79wAvUIsPcOYo5RbAoxGVWWnA==}
-    dev: false
-
   /@cartridge/account-wasm@0.5.1:
     resolution: {integrity: sha512-m7XGkiZvh49s7SIvWHpgu7xNcgzTTn3XPewd2V+AWXTZzkj/JtRDSsUK0Rywg0qLTh3SEimviSiSpX6qm0XCgA==}
     dev: false
 
-  /@cartridge/connector@0.5.1(get-starknet-core@4.0.0)(react@19.0.0-rc-66855b96-20241106)(typescript@5.7.2):
+  /@cartridge/connector@0.5.1(get-starknet-core@4.0.0)(react@18.3.1)(typescript@5.7.2):
     resolution: {integrity: sha512-50wVk+EkbSIArGEzb+cylCE68vU5lx7IdFoWDPqMueZ9AWxODuVEo4TubqbUAt2vqGO+L2fhEnknlmOFGdZE9A==}
     dependencies:
       '@cartridge/controller': 0.5.1
-      '@starknet-react/core': 3.6.0(get-starknet-core@4.0.0)(react@19.0.0-rc-66855b96-20241106)(starknet@6.11.0)(typescript@5.7.2)
+      '@starknet-react/core': 3.6.0(get-starknet-core@4.0.0)(react@18.3.1)(starknet@6.11.0)(typescript@5.7.2)
       starknet: 6.11.0
     transitivePeerDependencies:
       - bufferutil
@@ -462,7 +455,7 @@ packages:
       next-themes: 0.3.0(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-hook-form: 7.53.2(react@19.0.0-rc-66855b96-20241106)
+      react-hook-form: 7.53.2(react@18.3.1)
       sonner: 1.7.0(react-dom@18.3.1)(react@18.3.1)
       starknet: 6.11.0
       tailwind-merge: 2.5.5
@@ -663,7 +656,7 @@ packages:
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.53.2(react@19.0.0-rc-66855b96-20241106)
+      react-hook-form: 7.53.2(react@18.3.1)
     dev: false
 
   /@humanfs/core@0.19.1:
@@ -2151,7 +2144,7 @@ packages:
     resolution: {integrity: sha512-h+fxh+Bs8h0ZSEX651vG3mn1NtMKzFDSHqrX7Q8YRRIeTKolPCx4vmoi5Gg19SXr/9iIVSwgx6qe4rVZTNfhcQ==}
     dev: false
 
-  /@starknet-react/core@3.6.0(get-starknet-core@4.0.0)(react@19.0.0-rc-66855b96-20241106)(starknet@6.11.0)(typescript@5.7.2):
+  /@starknet-react/core@3.6.0(get-starknet-core@4.0.0)(react@18.3.1)(starknet@6.11.0)(typescript@5.7.2):
     resolution: {integrity: sha512-+5acQqMZkk6q2/cogoY7g/Ne2zgUHUvbgEc1dE9ItNbfpMJqxUtB5Ovt7+Q3utsYUYXbuxWgq/G6CjPHGrtqzg==}
     peerDependencies:
       get-starknet-core: ^4.0.0
@@ -2160,10 +2153,10 @@ packages:
     dependencies:
       '@starknet-io/types-js': 0.7.8
       '@starknet-react/chains': 3.1.0
-      '@tanstack/react-query': 5.61.3(react@19.0.0-rc-66855b96-20241106)
+      '@tanstack/react-query': 5.61.3(react@18.3.1)
       eventemitter3: 5.0.1
       get-starknet-core: 4.0.0
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
       starknet: 6.11.0
       viem: 2.21.51(typescript@5.7.2)(zod@3.23.8)
       zod: 3.23.8
@@ -2187,13 +2180,13 @@ packages:
     resolution: {integrity: sha512-tI+k0KyCo1EBJ54vxK1kY24LWj673ujTydCZmzEZKAew4NqZzTaVQJEuaG1qKj2M03kUHN46rchLRd+TxVq/zQ==}
     dev: false
 
-  /@tanstack/react-query@5.61.3(react@19.0.0-rc-66855b96-20241106):
+  /@tanstack/react-query@5.61.3(react@18.3.1):
     resolution: {integrity: sha512-c3Oz9KaCBapGkRewu7AJLhxE9BVqpMcHsd3KtFxSd7FSCu2qGwqfIN37zbSGoyk6Ix9LGZBNHQDPI6GpWABnmA==}
     peerDependencies:
       react: ^18 || ^19
     dependencies:
       '@tanstack/query-core': 5.60.6
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
     dev: false
 
   /@telegram-apps/bridge@1.4.0:
@@ -2213,7 +2206,7 @@ packages:
       '@telegram-apps/toolkit': 1.0.0
     dev: false
 
-  /@telegram-apps/sdk-react@2.0.13(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106):
+  /@telegram-apps/sdk-react@2.0.13(@types/react@18.3.12)(react@18.3.1):
     resolution: {integrity: sha512-uZv4+ILB3V9G0PqsnVmnOqk8VwoMC7ea8NReTMPSXM+KRMSJgWJMA5ZJ4ArAqAYMe4x6EAhArf5GIhFs0S5dQA==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
@@ -2224,7 +2217,7 @@ packages:
     dependencies:
       '@telegram-apps/sdk': 2.6.2
       '@types/react': 18.3.12
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
     dev: false
 
   /@telegram-apps/sdk@2.6.2:
@@ -2255,13 +2248,13 @@ packages:
     resolution: {integrity: sha512-8tGy1zG/1MEt0KF8nR0ffZ93whKveEJIkBI+qxHCRgatKwKVJV2dVSXrrBspFKn7FIIo1/CvmB8zP4vKPzglbg==}
     dev: false
 
-  /@twa-dev/sdk@7.10.1(react@19.0.0-rc-66855b96-20241106):
+  /@twa-dev/sdk@7.10.1(react@18.3.1):
     resolution: {integrity: sha512-mY9JaBPspYfLdzoaARVmr0GKXUO3X4hi1vuP+04UUFWST2lB50xGSxExOFz5I3vBaxnrdLregBGiaitvvWaX6w==}
     peerDependencies:
       react: ^18.3.1
     dependencies:
       '@twa-dev/types': 7.10.0
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
     dev: false
 
   /@twa-dev/types@7.10.0:
@@ -4444,12 +4437,12 @@ packages:
       react: 18.3.1
     dev: false
 
-  /lucide-react@0.460.0(react@19.0.0-rc-66855b96-20241106):
+  /lucide-react@0.460.0(react@18.3.1):
     resolution: {integrity: sha512-BVtq/DykVeIvRTJvRAgCsOwaGL8Un3Bxh8MbDxMhEWlZay3T4IpEKDEpwt5KZ0KJMHzgm6jrltxlT5eXOWXDHg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
     dependencies:
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
     dev: false
 
   /match-sorter@6.3.4:
@@ -4548,7 +4541,7 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /next@15.0.3(@babel/core@7.26.0)(react-dom@19.0.0-rc-66855b96-20241106)(react@19.0.0-rc-66855b96-20241106):
+  /next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-ontCbCRKJUIoivAdGB34yCaOcPgYXr9AAkV/IwqFfWWTXEPUgLYkSkqBhIk9KK7gGmgjc64B+RdoeIDM13Irnw==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
@@ -4575,9 +4568,9 @@ packages:
       busboy: 1.6.0
       caniuse-lite: 1.0.30001684
       postcss: 8.4.31
-      react: 19.0.0-rc-66855b96-20241106
-      react-dom: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
-      styled-jsx: 5.1.6(@babel/core@7.26.0)(react@19.0.0-rc-66855b96-20241106)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      styled-jsx: 5.1.6(@babel/core@7.26.0)(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.0.3
       '@next/swc-darwin-x64': 15.0.3
@@ -4959,22 +4952,13 @@ packages:
       scheduler: 0.23.2
     dev: false
 
-  /react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106):
-    resolution: {integrity: sha512-D25vdaytZ1wFIRiwNU98NPQ/upS2P8Co4/oNoa02PzHbh8deWdepjm5qwZM/46OdSiGv4WSWwxP55RO9obqJEQ==}
-    peerDependencies:
-      react: 19.0.0-rc-66855b96-20241106
-    dependencies:
-      react: 19.0.0-rc-66855b96-20241106
-      scheduler: 0.25.0-rc-66855b96-20241106
-    dev: false
-
-  /react-hook-form@7.53.2(react@19.0.0-rc-66855b96-20241106):
+  /react-hook-form@7.53.2(react@18.3.1):
     resolution: {integrity: sha512-YVel6fW5sOeedd1524pltpHX+jgU2u3DSDtXEaBORNdqiNrsX/nUI/iGXONegttg0mJVnfrIkiV0cmTU6Oo2xw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
     dependencies:
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
     dev: false
 
   /react-is@16.13.1:
@@ -5057,11 +5041,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
-
-  /react@19.0.0-rc-66855b96-20241106:
-    resolution: {integrity: sha512-klH7xkT71SxRCx4hb1hly5FJB21Hz0ACyxbXYAECEqssUjtJeFUAaI2U1DgJAzkGEnvEm3DkxuBchMC/9K4ipg==}
-    engines: {node: '>=0.10.0'}
     dev: false
 
   /read-cache@1.0.0:
@@ -5196,10 +5175,6 @@ packages:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
-
-  /scheduler@0.25.0-rc-66855b96-20241106:
-    resolution: {integrity: sha512-HQXp/Mnp/MMRSXMQF7urNFla+gmtXW/Gr1KliuR0iboTit4KvZRY8KYaq5ccCTAOJiUqQh2rE2F3wgUekmgdlA==}
     dev: false
 
   /schema-utils@3.3.0:
@@ -5485,7 +5460,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /styled-jsx@5.1.6(@babel/core@7.26.0)(react@19.0.0-rc-66855b96-20241106):
+  /styled-jsx@5.1.6(@babel/core@7.26.0)(react@18.3.1):
     resolution: {integrity: sha512-qSVyDTeMotdvQYoHWLNGwRFJHC+i+ZvdBRYosOFgC+Wg1vx4frN2/RG/NA7SYqqvKNLf39P2LSRA2pu6n0XYZA==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -5500,7 +5475,7 @@ packages:
     dependencies:
       '@babel/core': 7.26.0
       client-only: 0.0.1
-      react: 19.0.0-rc-66855b96-20241106
+      react: 18.3.1
     dev: false
 
   /sucrase@3.35.0:

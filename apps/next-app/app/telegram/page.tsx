@@ -1,10 +1,10 @@
 'use client'
 
-import { Header } from '@/app/components/Header'
-import { Message } from '@/app/components/Message'
-import { ChatInput } from '@/app/components/ChatInput'
-import { useTelegramAccount } from '../context/TelegramAccountProvider'
-import { useChat } from '../hooks/useChat'
+import { TelegramHeader } from '@/app/components/TelegramHeader'
+import { TelegramMessage } from '@/app/components/TelegramMessage'
+import { TelegramChatInput } from '@/app/components/TelegramChatInput'
+import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
+import { useChat } from '@/app/hooks/useChat'
 
 export default function TelegramPage() {
   const { address } = useTelegramAccount()
@@ -15,11 +15,11 @@ export default function TelegramPage() {
 
   return (
     <div className="min-h-screen bg-[#17212b] text-white">
-      <Header />
+      <TelegramHeader />
       <div className="pt-20 pb-20 px-4">
         <div className="max-w-2xl mx-auto">
           {messages.map((message) => (
-            <Message
+            <TelegramMessage
               key={message.id}
               content={message.content}
               timestamp={message.timestamp}
@@ -32,7 +32,7 @@ export default function TelegramPage() {
           ))}
         </div>
       </div>
-      <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+      <TelegramChatInput onSend={handleSendMessage} isLoading={isLoading} />
     </div>
   )
 }
