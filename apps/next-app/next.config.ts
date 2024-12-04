@@ -37,14 +37,10 @@ const nextConfig: NextConfig = {
       layers: true,
     }
 
-    config.module.rules.push({
-      test: /\.wasm$/,
-      type: 'webassembly/async',
-    })
+    // config.target = ['web', 'es2017']
 
     return config
   },
-  reactStrictMode: true,
 }
 
 export default nextConfig

@@ -16,8 +16,9 @@ import {
 } from '@telegram-apps/sdk-react'
 import * as Dojo from '@dojoengine/torii-client'
 import encodeUrl from 'encodeurl'
-import { CartridgeSessionAccount } from '@cartridge/account-wasm/session'
+// import { CartridgeSessionAccount } from '@cartridge/account-wasm/session'
 import { KEYCHAIN_URL, RPC_URL, POLICIES, REDIRECT_URI } from '@/constants'
+import { CartridgeSessionAccount } from '../lib/account-wasm'
 
 interface AccountStorage {
   username: string
@@ -120,12 +121,17 @@ export const TelegramAccountProvider: React.FC<AccountProviderProps> = ({
   const account = useMemo(() => {
     if (!accountStorage || !sessionSigner) return
 
+    console.log('RPC_URL:' + RPC_URL)
+    console.log('pkey:' + sessionSigner.privateKey)
+    console.log('address:' + accountStorage.address)
+    console.log('guid:' + accountStorage.ownerGuid)
+
     return CartridgeSessionAccount.new_as_registered(
       RPC_URL,
       sessionSigner.privateKey,
       accountStorage.address,
       accountStorage.ownerGuid,
-      Dojo.cairoShortStringToFelt('SN_MAINNET'),
+      Dojo.cairoShortStringToFelt('SN_MAIN'),
       {
         expiresAt: Number(accountStorage.expiresAt),
         policies: POLICIES,

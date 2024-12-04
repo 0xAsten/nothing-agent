@@ -10,7 +10,7 @@ export function TelegramConnectWallet({
 }) {
   const { openConnectionPage } = useTelegramAccount()
 
-  const handleConnect = () => {
+  const handleConnect = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log('connecting')
     openConnectionPage()
   }

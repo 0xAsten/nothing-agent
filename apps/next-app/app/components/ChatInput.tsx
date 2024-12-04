@@ -12,7 +12,7 @@ interface ChatInputProps {
 
 export function ChatInput({ onSend, isLoading }: ChatInputProps) {
   const [message, setMessage] = useState('')
-  const { isConnected } = useAccount()
+  const { address, isConnected } = useAccount()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

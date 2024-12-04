@@ -1,8 +1,9 @@
 'use client'
 
-import { useAccount } from '@starknet-react/core'
+import { useContract, useAccount } from '@starknet-react/core'
 import { ArrowBigRight } from 'lucide-react'
 import { useState } from 'react'
+import { Contract } from 'starknet'
 
 interface MessageProps {
   content: string
