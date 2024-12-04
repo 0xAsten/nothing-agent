@@ -1,7 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-/**
-*/
 export enum ErrorCode {
   StarknetFailedToReceiveTransaction = 1,
   StarknetContractNotFound = 20,
@@ -61,18 +59,21 @@ export enum ErrorCode {
   ProviderArrayLengthMismatch = 130,
   ProviderOther = 131,
   SessionAlreadyRegistered = 132,
+  UrlParseError = 133,
+  Base64DecodeError = 134,
+  CoseError = 135,
+  PolicyChainIdMismatch = 136,
 }
-export interface JsInvocationsDetails {
-    maxFee: Felt;
+export interface CallPolicy {
+    target: string;
+    method: string;
 }
 
-export interface JsOutsideExecution {
-    caller: Felt;
-    executeBefore: number;
-    executeAfter: number;
-    calls: JsCall[];
-    nonce: Felt;
+export interface TypedDataPolicy {
+    scope_hash: string;
 }
+
+export type Policy = CallPolicy | TypedDataPolicy;
 
 export interface WebauthnSigner {
     rpId: string;
@@ -88,25 +89,6 @@ export interface Signer {
     webauthn?: WebauthnSigner;
     starknet?: StarknetSigner;
 }
-
-export interface JsEstimateFeeDetails {
-    nonce: Felt;
-}
-
-export interface JsCall {
-    contractAddress: Felt;
-    entrypoint: string;
-    calldata: Felt[];
-}
-
-export interface Policy {
-    target: string;
-    method: string;
-}
-
-export type Felts = JsFelt[];
-
-export type JsFelt = Felt;
 
 export interface SessionMetadata {
     session: Session;
@@ -125,160 +107,72 @@ export interface Credentials {
     privateKey: Felt;
 }
 
-/**
-*/
-export class CartridgeAccount {
-  free(): void;
-/**
-* Creates a new `CartridgeAccount` instance.
-*
-* # Parameters
-* - `app_id`: Application identifier.
-* - `rpc_url`: The URL of the JSON-RPC endpoint.
-* - `chain_id`: Identifier of the blockchain network to interact with.
-* - `address`: The blockchain address associated with the account.
-* - `username`: Username associated with the account.
-* - `signer`: A Signer struct containing the signer type and associated data.
-* @param {string} app_id
-* @param {string} rpc_url
-* @param {JsFelt} chain_id
-* @param {JsFelt} address
-* @param {string} username
-* @param {Signer} signer
-* @returns {CartridgeAccount}
-*/
-  static new(app_id: string, rpc_url: string, chain_id: JsFelt, address: JsFelt, username: string, signer: Signer): CartridgeAccount;
-/**
-* @returns {JsFelt}
-*/
-  ownerGuid(): JsFelt;
-/**
-* @param {(Policy)[]} policies
-* @param {bigint} expires_at
-* @param {JsFelt} public_key
-* @param {JsFelt} max_fee
-* @returns {Promise<any>}
-*/
-  registerSession(policies: (Policy)[], expires_at: bigint, public_key: JsFelt, max_fee: JsFelt): Promise<any>;
-/**
-* @param {(Policy)[]} policies
-* @param {bigint} expires_at
-* @param {JsFelt} public_key
-* @returns {any}
-*/
-  registerSessionCalldata(policies: (Policy)[], expires_at: bigint, public_key: JsFelt): any;
-/**
-* @param {JsFelt} new_class_hash
-* @returns {JsCall}
-*/
-  upgrade(new_class_hash: JsFelt): JsCall;
-/**
-* @param {(Policy)[]} policies
-* @param {bigint} expires_at
-* @returns {Promise<void>}
-*/
-  createSession(policies: (Policy)[], expires_at: bigint): Promise<void>;
-/**
-* @param {(JsCall)[]} calls
-* @returns {Promise<any>}
-*/
-  estimateInvokeFee(calls: (JsCall)[]): Promise<any>;
-/**
-* @param {(JsCall)[]} calls
-* @param {JsInvocationsDetails} details
-* @returns {Promise<any>}
-*/
-  execute(calls: (JsCall)[], details: JsInvocationsDetails): Promise<any>;
-/**
-* @param {(JsCall)[]} calls
-* @returns {Promise<any>}
-*/
-  executeFromOutside(calls: (JsCall)[]): Promise<any>;
-/**
-* @param {(JsCall)[]} calls
-* @returns {boolean}
-*/
-  hasSession(calls: (JsCall)[]): boolean;
-/**
-* @param {(Policy)[]} policies
-* @param {JsFelt | undefined} [public_key]
-* @returns {SessionMetadata | undefined}
-*/
-  session(policies: (Policy)[], public_key?: JsFelt): SessionMetadata | undefined;
-/**
-*/
-  revokeSession(): void;
-/**
-* @param {string} typed_data
-* @returns {Promise<Felts>}
-*/
-  signMessage(typed_data: string): Promise<Felts>;
-/**
-* @returns {Promise<any>}
-*/
-  getNonce(): Promise<any>;
-/**
-* @param {JsFelt} max_fee
-* @returns {Promise<any>}
-*/
-  deploySelf(max_fee: JsFelt): Promise<any>;
-/**
-* @returns {Promise<JsFelt>}
-*/
-  delegateAccount(): Promise<JsFelt>;
+export interface JsCall {
+    contractAddress: Felt;
+    entrypoint: string;
+    calldata: Felt[];
 }
-/**
-*/
+
+export interface JsEstimateFeeDetails {
+    nonce: Felt;
+}
+
+export interface JsInvocationsDetails {
+    maxFee: Felt;
+}
+
+export type Felts = JsFelt[];
+
+export type JsFelt = Felt;
+
 export class CartridgeSessionAccount {
   free(): void;
-/**
-* @param {string} rpc_url
-* @param {JsFelt} signer
-* @param {JsFelt} address
-* @param {JsFelt} chain_id
-* @param {(JsFelt)[]} session_authorization
-* @param {Session} session
-* @returns {CartridgeSessionAccount}
-*/
+  /**
+   * @param {string} rpc_url
+   * @param {JsFelt} signer
+   * @param {JsFelt} address
+   * @param {JsFelt} chain_id
+   * @param {(JsFelt)[]} session_authorization
+   * @param {Session} session
+   * @returns {CartridgeSessionAccount}
+   */
   static new(rpc_url: string, signer: JsFelt, address: JsFelt, chain_id: JsFelt, session_authorization: (JsFelt)[], session: Session): CartridgeSessionAccount;
-/**
-* @param {string} rpc_url
-* @param {JsFelt} signer
-* @param {JsFelt} address
-* @param {JsFelt} owner_guid
-* @param {JsFelt} chain_id
-* @param {Session} session
-* @returns {CartridgeSessionAccount}
-*/
+  /**
+   * @param {string} rpc_url
+   * @param {JsFelt} signer
+   * @param {JsFelt} address
+   * @param {JsFelt} owner_guid
+   * @param {JsFelt} chain_id
+   * @param {Session} session
+   * @returns {CartridgeSessionAccount}
+   */
   static new_as_registered(rpc_url: string, signer: JsFelt, address: JsFelt, owner_guid: JsFelt, chain_id: JsFelt, session: Session): CartridgeSessionAccount;
-/**
-* @param {JsFelt} hash
-* @param {(JsCall)[]} calls
-* @returns {Promise<Felts>}
-*/
+  /**
+   * @param {JsFelt} hash
+   * @param {(JsCall)[]} calls
+   * @returns {Promise<Felts>}
+   */
   sign(hash: JsFelt, calls: (JsCall)[]): Promise<Felts>;
-/**
-* @param {(JsCall)[]} calls
-* @returns {Promise<any>}
-*/
+  /**
+   * @param {(JsCall)[]} calls
+   * @param {JsFelt} max_fee
+   * @returns {Promise<Felts>}
+   */
+  sign_transaction(calls: (JsCall)[], max_fee: JsFelt): Promise<Felts>;
+  /**
+   * @param {(JsCall)[]} calls
+   * @returns {Promise<any>}
+   */
   execute(calls: (JsCall)[]): Promise<any>;
-/**
-* @param {(JsCall)[]} calls
-* @returns {Promise<any>}
-*/
+  /**
+   * @param {(JsCall)[]} calls
+   * @returns {Promise<any>}
+   */
   execute_from_outside(calls: (JsCall)[]): Promise<any>;
 }
-/**
-*/
 export class JsControllerError {
   free(): void;
-/**
-*/
   code: ErrorCode;
-/**
-*/
   data?: string;
-/**
-*/
   message: string;
 }
