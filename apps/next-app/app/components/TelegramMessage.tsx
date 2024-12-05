@@ -41,7 +41,18 @@ export function TelegramMessage({
     setTxnHash(undefined)
 
     try {
-      const { transaction_hash } = await account.execute(transactionData.steps)
+      const formattedSteps = transactionData.steps.map((step) => ({
+        ...step,
+        calldata: step.calldata.map((value) => {
+          if (/^\d+$/.test(value)) {
+            const hexValue = BigInt(value).toString(16)
+            return `0x${hexValue}`
+          }
+          return value
+        }),
+      }))
+
+      const { transaction_hash } = await account.execute(formattedSteps)
       setTxnHash(transaction_hash)
     } catch (error) {
       console.error(error)
