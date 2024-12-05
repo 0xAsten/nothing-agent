@@ -1,4 +1,7 @@
 'use client'
+
+import { StarknetProvider } from '@/app/context/StarknetProvider'
+
 import dynamic from 'next/dynamic'
 
 // import { TelegramAccountProvider } from '@/app/context/TelegramAccountProvider'
@@ -18,5 +21,9 @@ export default function TelegramLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <TelegramAccountProvider>{children}</TelegramAccountProvider>
+  return (
+    <StarknetProvider>
+      <TelegramAccountProvider>{children}</TelegramAccountProvider>
+    </StarknetProvider>
+  )
 }
