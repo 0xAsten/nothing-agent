@@ -8,40 +8,15 @@ const nextConfig: NextConfig = {
     '@cartridge/controller',
   ],
   webpack: (config) => {
-    // Add support for importing JSX files
-    config.resolve.extensions.push('.jsx')
-
-    // Configure module rules for JSX files in node_modules
-    config.module.rules.push({
-      test: /\.jsx?$/,
-      include: [/node_modules\/@cartridge/],
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react'],
-          },
-        },
-      ],
-    })
-
-    // Add proper module resolution
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      module: false,
-    }
-
     // Configure WebAssembly to use async loading
     config.experiments = {
       asyncWebAssembly: true,
       layers: true,
     }
 
-    // Explicitly set the target
-    config.target = ['web', 'es2020']
-
     return config
   },
+  output: 'standalone',
 }
 
 export default nextConfig

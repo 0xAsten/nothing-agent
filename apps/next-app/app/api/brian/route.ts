@@ -1,6 +1,4 @@
-export const GET = async () => {
-  return Response.json({ message: 'Hello, World!' })
-}
+import { NextRequest, NextResponse } from 'next/server'
 
 export interface Message {
   sender: 'user' | 'brian'
@@ -10,7 +8,11 @@ export interface Message {
 const API_URL = 'https://api.brianknows.org/api/v0/agent'
 const API_KEY = process.env.BRIAN_API_KEY
 
-export const POST = async (request: Request) => {
+export async function GET() {
+  return NextResponse.json({ message: 'Hello, World!' })
+}
+
+export async function POST(request: NextRequest) {
   const body = await request.json()
 
   const response = await fetch(API_URL, {
@@ -27,6 +29,5 @@ export const POST = async (request: Request) => {
   })
 
   const data = await response.json()
-
-  return Response.json(data)
+  return NextResponse.json(data)
 }

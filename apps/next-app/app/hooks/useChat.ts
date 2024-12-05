@@ -57,7 +57,7 @@ export function useChat(initialContent: string, address?: string) {
     try {
       setIsLoading(true)
 
-      const response = await fetch('/api', {
+      const response = await fetch('/api/brian', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
