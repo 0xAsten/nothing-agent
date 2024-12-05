@@ -121,11 +121,6 @@ export const TelegramAccountProvider: React.FC<AccountProviderProps> = ({
   const account = useMemo(() => {
     if (!accountStorage || !sessionSigner) return
 
-    console.log('RPC_URL:' + RPC_URL)
-    console.log('pkey:' + sessionSigner.privateKey)
-    console.log('address:' + accountStorage.address)
-    console.log('guid:' + accountStorage.ownerGuid)
-
     return CartridgeSessionAccount.new_as_registered(
       RPC_URL,
       sessionSigner.privateKey,
