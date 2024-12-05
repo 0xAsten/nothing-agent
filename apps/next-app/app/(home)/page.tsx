@@ -4,7 +4,7 @@ import { Header } from '@/app/components/Header'
 import { Message } from '@/app/components/Message'
 import { ChatInput } from '@/app/components/ChatInput'
 import { useAccount } from '@starknet-react/core'
-import { useChat } from './hooks/useChat'
+import { useChat } from '@/app/hooks/useChat'
 
 export default function Home() {
   const { address } = useAccount()

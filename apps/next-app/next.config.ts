@@ -37,7 +37,8 @@ const nextConfig: NextConfig = {
       layers: true,
     }
 
-    // config.target = ['web', 'es2017']
+    // Explicitly set the target
+    config.target = ['web', 'es2020']
 
     return config
   },
