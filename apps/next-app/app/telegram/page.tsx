@@ -3,11 +3,11 @@
 import { TelegramHeader } from '@/app/components/TelegramHeader'
 import { TelegramMessage } from '@/app/components/TelegramMessage'
 import { TelegramChatInput } from '@/app/components/TelegramChatInput'
-import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 import { useChat } from '@/app/hooks/useChat'
+import { useAccount } from '@starknet-react/core'
 
 export default function TelegramPage() {
-  const { address } = useTelegramAccount()
+  const { address } = useAccount()
   const { messages, isLoading, handleSendMessage } = useChat(
     '👋 Welcome to our Nothing Agent on Telegram!',
     address,

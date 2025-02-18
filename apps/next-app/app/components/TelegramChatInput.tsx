@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { Send } from 'lucide-react'
 import { TelegramConnectWallet } from './TelegramConnectWallet'
 import { useAccount } from '@starknet-react/core'
-// import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 
 interface ChatInputProps {
   onSend: (message: string) => void
