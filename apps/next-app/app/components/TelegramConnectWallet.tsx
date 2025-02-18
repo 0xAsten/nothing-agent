@@ -1,6 +1,7 @@
 'use client'
 
 import ControllerConnector from '@cartridge/connector/controller'
+import SessionConnector from '@cartridge/connector/session'
 import { Button } from '@cartridge/ui-next'
 import { useConnect } from '@starknet-react/core'
 
@@ -11,10 +12,11 @@ export function TelegramConnectWallet({
 }) {
   const { connect, connectors } = useConnect()
 
-  const controller = connectors[0] as ControllerConnector
+  const controller = connectors[0] as SessionConnector
 
-  const handleConnect = () => {
+  const handleConnect = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log('connecting')
+    e.preventDefault()
     connect({ connector: controller })
   }
 
