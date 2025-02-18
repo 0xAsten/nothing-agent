@@ -14,7 +14,7 @@ const colorMode: ColorMode = 'dark'
 const connector = new ControllerConnector({
   policies: POLICIES,
   defaultChainId: constants.StarknetChainId.SN_MAIN,
-  chains: [{ rpcUrl: 'https://api.cartridge.gg/x/starknet/sepolia' }],
+  chains: [{ rpcUrl: RPC_URL }],
   colorMode,
 })
 

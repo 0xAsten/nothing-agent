@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { useBalance } from '@starknet-react/core'
-import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
+import { useAccount, useBalance } from '@starknet-react/core'
+// import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 import {
   ETH_TOKEN_ADDRESS,
   USDC_TOKEN_ADDRESS,
@@ -48,7 +48,7 @@ const BalanceDisplay = ({ data, prevBalance }: BalanceDisplayProps) => {
 }
 
 export function TelegramWalletBalances() {
-  const { address } = useTelegramAccount()
+  const { address } = useAccount()
 
   // Get balances
   const { data: usdc_data } = useBalance({

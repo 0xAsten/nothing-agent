@@ -3,7 +3,8 @@
 import React, { useState } from 'react'
 import { Send } from 'lucide-react'
 import { TelegramConnectWallet } from './TelegramConnectWallet'
-import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
+import { useAccount } from '@starknet-react/core'
+// import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 
 interface ChatInputProps {
   onSend: (message: string) => void
@@ -12,7 +13,7 @@ interface ChatInputProps {
 
 export function TelegramChatInput({ onSend, isLoading }: ChatInputProps) {
   const [message, setMessage] = useState('')
-  const { address } = useTelegramAccount()
+  const { address } = useAccount()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

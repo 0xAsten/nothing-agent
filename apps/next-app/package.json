@@ -12,10 +12,11 @@
     "@cartridge/account-wasm": "0.6.0",
     "@cartridge/connector": "^0.6.0",
     "@cartridge/controller": "^0.6.0",
-    "@cartridge/ui-next": "0.6.0",
+    "@cartridge/presets": "^0.5.2",
+    "@cartridge/ui-next": "^0.6.0",
     "@dojoengine/torii-client": "^1.0.2",
     "@starknet-react/chains": "^3.1.0",
-    "@starknet-react/core": "^3.6.0",
+    "@starknet-react/core": "^3.7.0",
     "@telegram-apps/sdk-react": "^2.0.13",
     "@twa-dev/sdk": "^7.10.1",
     "encodeurl": "^2.0.0",
@@ -23,7 +24,8 @@
     "next": "15.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "starknet": "^6.11.0"
+    "react-hot-toast": "^2.5.2",
+    "starknet": "^6.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

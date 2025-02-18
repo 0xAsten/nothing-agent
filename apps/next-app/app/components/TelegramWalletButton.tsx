@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react'
 import { Wallet2, LogOut, ChevronDown } from 'lucide-react'
 import { TelegramConnectWallet } from './TelegramConnectWallet'
 import { TelegramWalletBalances } from './TelegramWalletBalances'
-import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
+// import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 import { TelegramDisconnectWallet } from './TelegramDisconnectWallet'
-
+import { useAccount } from '@starknet-react/core'
 export function TelegramWalletButton() {
-  const { address } = useTelegramAccount()
+  const { address } = useAccount()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   useEffect(() => {

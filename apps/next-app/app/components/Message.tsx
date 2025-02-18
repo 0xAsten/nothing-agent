@@ -1,9 +1,9 @@
 'use client'
 
-import { useContract, useAccount } from '@starknet-react/core'
+import { useAccount } from '@starknet-react/core'
 import { ArrowBigRight } from 'lucide-react'
 import { useState } from 'react'
-import { Contract } from 'starknet'
+import toast from 'react-hot-toast'
 
 interface MessageProps {
   content: string
@@ -41,10 +41,18 @@ export function Message({
     setSubmitted(true)
     setTxnHash(undefined)
 
-    account
-      .execute(transactionData.steps)
-      .then(({ transaction_hash }) => setTxnHash(transaction_hash))
-      .catch((e) => console.log(e))
+    toast
+      .promise(account.execute(transactionData.steps), {
+        loading: 'Transaction is being processed...',
+        success: (result) => {
+          setTxnHash(result.transaction_hash)
+          return 'Transaction submitted successfully!'
+        },
+        error: (err) => {
+          console.error(err)
+          return `Transaction failed: ${err.message || 'Unknown error'}`
+        },
+      })
       .finally(() => setSubmitted(false))
   }
 

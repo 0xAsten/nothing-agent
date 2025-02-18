@@ -16,7 +16,6 @@ import {
 } from '@telegram-apps/sdk-react'
 import * as Dojo from '@dojoengine/torii-client'
 import encodeUrl from 'encodeurl'
-// import { CartridgeSessionAccount } from '@cartridge/account-wasm/session'
 import { KEYCHAIN_URL, RPC_URL, POLICIES, REDIRECT_URI } from '@/constants'
 import { CartridgeSessionAccount } from '@/public/account-wasm'
 

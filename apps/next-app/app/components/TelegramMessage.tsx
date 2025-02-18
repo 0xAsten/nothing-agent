@@ -1,8 +1,8 @@
 'use client'
 
-import { useTelegramAccount } from '@/app/context/TelegramAccountProvider'
 import { ArrowBigRight } from 'lucide-react'
 import { useState } from 'react'
+import { useAccount, useConnect } from '@starknet-react/core'
 
 interface MessageProps {
   content: string
@@ -29,7 +29,8 @@ export function TelegramMessage({
   executable = false,
   transactionData,
 }: MessageProps) {
-  const { account } = useTelegramAccount()
+  const { account } = useAccount()
+
   const [txnHash, setTxnHash] = useState<string | undefined>(undefined)
   const [submitted, setSubmitted] = useState<boolean>(false)
 
