@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cartridge/account-wasm": "0.5.1",
-    "@cartridge/connector": "^0.5.0",
-    "@cartridge/controller": "^0.5.0",
-    "@cartridge/ui-next": "0.5.0",
+    "@cartridge/account-wasm": "0.6.0",
+    "@cartridge/connector": "^0.6.0",
+    "@cartridge/controller": "^0.6.0",
+    "@cartridge/ui-next": "0.6.0",
     "@dojoengine/torii-client": "^1.0.2",
     "@starknet-react/chains": "^3.1.0",
     "@starknet-react/core": "^3.6.0",

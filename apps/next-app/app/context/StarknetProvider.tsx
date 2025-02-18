@@ -4,14 +4,18 @@ import React from 'react'
 
 import { sepolia, mainnet, Chain } from '@starknet-react/chains'
 import { StarknetConfig, voyager, Connector } from '@starknet-react/core'
-import { RpcProvider } from 'starknet'
+import { RpcProvider, constants } from 'starknet'
 
 import ControllerConnector from '@cartridge/connector/controller'
 import { POLICIES, RPC_URL, SEPOLIA_RPC_URL } from '../../constants'
+import { ColorMode } from '@cartridge/controller'
 
+const colorMode: ColorMode = 'dark'
 const connector = new ControllerConnector({
   policies: POLICIES,
-  rpc: RPC_URL,
+  defaultChainId: constants.StarknetChainId.SN_MAIN,
+  chains: [{ rpcUrl: 'https://api.cartridge.gg/x/starknet/sepolia' }],
+  colorMode,
 })
 
 function provider(chain: Chain) {
@@ -33,7 +37,7 @@ export function StarknetProvider({ children }: { children: React.ReactNode }) {
     <StarknetConfig
       chains={[mainnet, sepolia]}
       provider={provider}
-      connectors={[connector as never as Connector]}
+      connectors={[connector]}
       explorer={voyager}
     >
       {children}

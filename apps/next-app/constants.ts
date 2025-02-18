@@ -1,3 +1,5 @@
+import { SessionPolicies } from '@cartridge/controller'
+
 export const KEYCHAIN_URL = 'https://x.cartridge.gg'
 export const RPC_URL = 'https://api.cartridge.gg/x/starknet/mainnet'
 export const SEPOLIA_RPC_URL = 'https://api.cartridge.gg/x/starknet/sepolia'
@@ -24,40 +26,63 @@ export const LORDS_TOKEN_ADDRESS =
 export const SWAP_USDC_STRK_ADDRESS =
   '0x4270219d365d6b017231b52e92b3fb5d7c8378b05e9abc97724537a80e93b0f'
 
-export const POLICIES = [
-  {
-    target: USDC_TOKEN_ADDRESS,
-    method: 'approve',
-    description: 'Approve USDC token for the swap.',
+export const POLICIES: SessionPolicies = {
+  contracts: {
+    [USDC_TOKEN_ADDRESS]: {
+      methods: [
+        {
+          name: 'approve',
+          entrypoint: 'approve',
+        },
+      ],
+    },
+    [ETH_TOKEN_ADDRESS]: {
+      methods: [
+        {
+          name: 'approve',
+          entrypoint: 'approve',
+        },
+      ],
+    },
+    [STRK_TOKEN_ADDRESS]: {
+      methods: [
+        {
+          name: 'approve',
+          entrypoint: 'approve',
+        },
+      ],
+    },
+    [DAI_TOKEN_ADDRESS]: {
+      methods: [
+        {
+          name: 'approve',
+          entrypoint: 'approve',
+        },
+      ],
+    },
+    [USDT_TOKEN_ADDRESS]: {
+      methods: [
+        {
+          name: 'approve',
+          entrypoint: 'approve',
+        },
+      ],
+    },
+    [LORDS_TOKEN_ADDRESS]: {
+      methods: [
+        {
+          name: 'approve',
+          entrypoint: 'approve',
+        },
+      ],
+    },
+    [SWAP_USDC_STRK_ADDRESS]: {
+      methods: [
+        {
+          name: 'multi_route_swap',
+          entrypoint: 'multi_route_swap',
+        },
+      ],
+    },
   },
-  {
-    target: ETH_TOKEN_ADDRESS,
-    method: 'approve',
-    description: 'Approve ETH token for the swap.',
-  },
-  {
-    target: STRK_TOKEN_ADDRESS,
-    method: 'approve',
-    description: 'Approve STRK token for the swap.',
-  },
-  {
-    target: DAI_TOKEN_ADDRESS,
-    method: 'approve',
-    description: 'Approve DAI token for the swap.',
-  },
-  {
-    target: USDT_TOKEN_ADDRESS,
-    method: 'approve',
-    description: 'Approve USDT token for the swap.',
-  },
-  {
-    target: LORDS_TOKEN_ADDRESS,
-    method: 'approve',
-    description: 'Approve LORDS token for the swap.',
-  },
-  {
-    target: SWAP_USDC_STRK_ADDRESS,
-    method: 'multi_route_swap',
-    description: 'Swap USDC to STRK.',
-  },
-]
+}
