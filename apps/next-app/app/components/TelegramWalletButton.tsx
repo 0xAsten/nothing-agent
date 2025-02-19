@@ -6,6 +6,7 @@ import { TelegramConnectWallet } from './TelegramConnectWallet'
 import { TelegramWalletBalances } from './TelegramWalletBalances'
 import { TelegramDisconnectWallet } from './TelegramDisconnectWallet'
 import { useAccount } from '@starknet-react/core'
+
 export function TelegramWalletButton() {
   const { address } = useAccount()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
